@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .Calculator {
+        background-color: black;
+        padding: 15px 30px;
+        border-radius: 24px;
+      }
+
+      button {
+        font-size: 22px;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        border: none;
+        cursor: pointer;
+      }
+
+      .display-box {
+        height: 70px;
+        margin-bottom: 16px;
+        border-radius: 10px;
+        display: flex;
+        justify-content: flex-end;
+      }
+
+      .button-box {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        row-gap: 20px;
+        column-gap: 15px;
+      }
+
+      .Operator-btn {
+        background-color: orange;
+        color: white;
+        font-size: 25px;
+      }
+
+      .Operator-btn:active {
+        opacity: 0.8;
+      }
+
+      .normal-btn {
+        color: white;
+        background-color: rgb(109, 109, 109);
+      }
+
+      .normal-btn:active {
+        background-color: white;
+        color: black;
+        transition: 0.15s;
+      }
+
+      .display {
+        display: flex;
+        align-items: center;
+        font-size: 60px;
+        margin: 0;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="Calculator">
+      <div class="display-box">
+        <p class="display"></p>
+      </div>
+      <div class="button-box">
+        <button class="normal-btn" onclick="UpdateCalculate('1')">1</button>
+        <button class="normal-btn" onclick="UpdateCalculate('2')">2</button>
+        <button class="normal-btn" onclick="UpdateCalculate('3')">3</button>
+        <button class="Operator-btn" onclick="UpdateCalculate('+')">+</button>
+        <button class="normal-btn" onclick="UpdateCalculate('4')">4</button>
+        <button class="normal-btn" onclick="UpdateCalculate('5')">5</button>
+        <button class="normal-btn" onclick="UpdateCalculate('6')">6</button>
+        <button class="Operator-btn" onclick="UpdateCalculate('-')">-</button>
+        <button class="normal-btn" onclick="UpdateCalculate('7')">7</button>
+        <button class="normal-btn" onclick="UpdateCalculate('8')">8</button>
+        <button class="normal-btn" onclick="UpdateCalculate('9')">9</button>
+        <button class="Operator-btn" onclick="UpdateCalculate('*')">
+          &times;
+        </button>
+        <button class="normal-btn" onclick="UpdateCalculate('0')">0</button>
+        <button class="normal-btn" onclick="UpdateCalculate('.')">.</button>
+        <button class="normal-btn" onclick="Calculate()">=</button>
+        <button class="Operator-btn" onclick="UpdateCalculate('/')">
+          &divide;
+        </button>
+        <button class="normal-btn" onclick="Clear()">AC</button>
+      </div>
+    </div>
+
+    <script>
+      const displayEl = document.querySelector(".display");
+      let expression = "";
+
+      function UpdateCalculate(value) {
+        expression += value;
+
+        displayEl.innerText = expression
+          .replace(/\*/g, "×")
+          .replace(/\//g, "÷");
+      }
+
+      function Calculate() {
+        displayEl.innerHTML = eval(expression);
+        expression = "";
+      }
+
+      function Clear() {
+        expression = "";
+        displayEl.innerHTML = expression;
+      }
+    </script>
+  </body>
+</html>
