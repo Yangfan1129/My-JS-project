@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="11-todo-list.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h3>To do List Project</h3>
+      <input class="js-name-input" type="text" placeholder="Type something" />
+      <input class="js-due-date-input" type="date" />
+      <button class="add-btn" onclick="addTodo()">Add</button>
+      <div class="head">
+        <p>List</p>
+        <p class="head-time">Time</p>
+        <p>Manage</p>
+      </div>
+      <div class="display"></div>
+    </div>
+
+    <script src="11-todo-list.js"></script>
+  </body>
+</html>
